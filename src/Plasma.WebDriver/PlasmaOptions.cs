@@ -41,5 +41,10 @@ namespace Plasma.WebDriver
         {
             get { throw new NotImplementedException(); }
         }
+
+        public ILogs Logs
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }
