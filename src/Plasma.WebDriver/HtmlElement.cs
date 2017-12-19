@@ -1,11 +1,11 @@
 /* **********************************************************************************
  *
- * Copyright 2010 ThoughtWorks, Inc.  
- * ThoughtWorks provides the software "as is" without warranty of any kind, either express or implied, including but not limited to, 
+ * Copyright 2010 ThoughtWorks, Inc.
+ * ThoughtWorks provides the software "as is" without warranty of any kind, either express or implied, including but not limited to,
  * the implied warranties of merchantability, satisfactory quality, non-infringement and fitness for a particular purpose.
  *
  * This source code is subject to terms and conditions of the Microsoft Permissive
- * License (MS-PL).  
+ * License (MS-PL).
  *
  * You must not remove this notice, or any other, from this software.
  *
@@ -49,7 +49,7 @@ namespace Plasma.WebDriver
 
         public void Clear()
         {
-            if ((TagName == "textarea"))
+            if (TagName == "textarea")
             {
                 currentNode.InnerHtml = string.Empty;
             }
@@ -61,7 +61,7 @@ namespace Plasma.WebDriver
 
         public void SendKeys(string text)
         {
-            if ((TagName == "textarea"))
+            if (TagName == "textarea")
             {
                 currentNode.InnerHtml = text;
             }
@@ -90,6 +90,11 @@ namespace Plasma.WebDriver
         public string GetAttribute(string attributeName)
         {
             return WebUtility.HtmlDecode(currentNode.GetAttributeValue(attributeName, string.Empty));
+        }
+
+        public string GetProperty(string propertyName)
+        {
+            throw new NotImplementedException();
         }
 
         public string GetCssValue(string propertyName)
@@ -248,7 +253,7 @@ namespace Plasma.WebDriver
             }
             else
             {
-                DeleteAttribute("checked");    
+                DeleteAttribute("checked");
             }
         }
 
@@ -285,6 +290,5 @@ namespace Plasma.WebDriver
         {
             currentNode.SetAttributeValue(attributeName, attributeValue);
         }
-
     }
 }
